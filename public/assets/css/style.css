@@ -55,6 +55,10 @@
     background-size: cover;
  } 
 
+#add-container {
+margin-top: 5rem;
+ }
+
 h1 {
     text-align: center;
     color: White;
@@ -95,7 +99,9 @@ h3 {
     text-align: center;
     font-size: 100px;
 }
-
+#search-container {
+    margin-top: 3.5rem;
+}
 #fav{
     color: rgb(7, 7, 7);
     font-family: 'Raleway', sans-serif;
@@ -103,8 +109,4 @@ h3 {
     font-size: 100px;
 }
 
-#fp-nav ul li a span, 
-.fp-slidesNav ul li a span {
-     background: #fff; 
-    } 
 

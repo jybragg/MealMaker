@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Meal Maker</title>
+    <title>Meal Prepper</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/search.js"></script>
@@ -20,88 +20,66 @@
 
 <body>
 
-    <div id="fullPage">
+    <div class="section" id="section3">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="./home.html">Meal Prepper</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="./recipes.html">Search Recipes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="./add.html">Add a Recipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="./favorites.html">Favorites</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" id="search-container">
+        <h2 id="recipesSearch">Search our recipes </h2>
+            <div class="row mt-4 justify-conent-center">
+                <div class="col-12">
+                    <div class="form-group">
+                        <form class="form-group mx-auto" style="width: 400px;">
+                            <div>
+                                <input type="text" class="form-control" id="recipes2"
+                                    aria-describedby="recipesSearch" placeholder="Search our recipes">
+                                <button class="btn btn-danger btn-md" id="search">Search</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container" id="results-container">
+                <div class="col-md-12 blog-container display-4 font-bold">
+                </div>
+                <div class="col-md-12 blog-container2 display-6">
+                </div>
+                <div class="col-md-12 blog-container3 display-6">
+                </div>
+                <div class="col-md-12 blog-container4 display-6">
+                </div>
+            </div>
+        </div>
+        <!-- Results Container -->
         <div class="section" id="section3">
-            <div class="row">
-                <div class="col">
-                    <nav class="navbar  navbar-expand-lg sticky-top navbar-light ">
-                        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#"></a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
 
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item active px-lg-4">
-                                    <a class="nav-link text-uppercase text-expanded" href="./home.html">Home</a>
-                                </li>
-                                <li class="nav-item active px-lg-4">
-                                    <a class="nav-link text-uppercase text-expanded" href="./recipes.html">Recipe
-                                        Search</a>
-                                </li>
-                                <li class="nav-item active px-lg-4">
-                                    <a class="nav-link text-uppercase text-expanded"
-                                        href="./favorites.html">Favorites</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <h2 id="recipesSearch">Search our recipes. </h2>
-                    <div class="container">
-                        <div class="row mt-4">
-                            <div class="col-md-4">
-                                <div class="form-group">
-
-                                    <form class="form-group mx-auto" style="width: 500px;">
-                                        <div>
-                                            <input type="text" class="form-control text-center" id="recipes2"
-                                                aria-describedby="recipesSearch" placeholder="Search our recipes.">
-                                            <button class="btn btn-danger btn-lg" id="search">Search</button>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <a class="btn btn-light" href="/">Search</a>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 blog-container display-4 font-bold">
-                            </div>
-                            <div class="col-md-12 blog-container2 display-6">
-                            </div>
-                            <div class="col-md-12 blog-container3 display-6">
-                            </div>
-                            <div class="col-md-12 blog-container4 display-6">
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <!-- <div class="text-center">
-                        <button class="btn btn-danger btn-lg" id="search">Search</button>
-                    </div> -->
-                    <div class="row">
-                        <div class="col">
-                            <div class="postContainer">
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12 blog-container display-4 font-bold">
-                            </div>
-                            <div class="col-md-12 blog-container2 display-6">
-                            </div>
-                            <div class="col-md-12 blog-container3 display-6">
-                            </div>
-                            <div class="col-md-12 blog-container4 display-6">
-                            </div>
-                        </div>
-                    </div>
-              
+        </div>
+    </div>
 </body>
 
 </html>

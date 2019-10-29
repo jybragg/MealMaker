@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Meal Maker</title>
+  <title>Meal Prepper</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/style.css" media="screen" title="no title">
@@ -16,29 +16,30 @@
 </head>
 
 <body id="addpage">
-  <nav class="navbar  navbar-expand-lg sticky-top navbar-dark">
-    <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item active px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="./home.html">Home</a>
-        </li>
-        <li class="nav-item active px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="./recipes.html">Recipe
-            Search</a>
-        </li>
-        <li class="nav-item active px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="./favorites.html">Favorites</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <div class="container">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="./home.html">Meal Prepper</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./recipes.html">Search Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./add.html">Add a Recipe</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="./favorites.html">Favorites</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <div class="container" id="add-container">
     <div class="row">
       <div class="row">
       </div>
