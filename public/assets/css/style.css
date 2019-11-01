@@ -60,11 +60,12 @@ margin-top: 5rem;
  }
 
 h1 {
-    text-align: center;
+    text-align: left;
     color: White;
     font-family: 'Raleway', sans-serif;
-    font-size: 150px;
+    font-size: 140px;
     font-weight: bold;
+    margin-top: 10%;
 }
 
 h2 {

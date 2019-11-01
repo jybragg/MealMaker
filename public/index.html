@@ -20,23 +20,26 @@
 <body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Meal Prepper</a>
+
+                <!-- LOGO -->
+            <!-- <a class="navbar-brand js-scroll-trigger text-expanded" href="#page-top">Meal Prepper</a> -->
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#section1">Search Recipes</a>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link js-scroll-trigger text-black" href="#section1">Search Recipes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./add.html">Add a Recipe</a>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link js-scroll-trigger" href="signup.html">Sign up</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="./favorites.html">Favorites</a>
+                    <li class="nav-item active px-lg-4">
+                        <a class="nav-link js-scroll-trigger" href="login.html">Login</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +50,7 @@
         <div class="row">
             <div class="col-9">
                 <br>
-                <h1 class="mr-5 mt-5">Meal Maker</h1>
+                <h1 class="mr-5">Meal Prepper</h1>
                 <h2>
                     Easy to use.
                     <br>
@@ -111,84 +114,6 @@
             <br>
         </div>
     </div>
-
-    <!-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="logInModal"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Log In</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="form-login">
-                        <div class="form-group">
-                            <label for="logInInputEmail">Email address</label>
-                            <input type="email" class="form-control" id="login-email-input"
-                                aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="logInInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="login-password-input"
-                                placeholder="Password">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" href="/api/google">Login with Google <i
-                            class="fab fa-google"></i></button>
-                    <button type="button" class="btn btn-danger" href="/api/signup">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-    <!-- <div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="signUpModal"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Sign up</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <form id="sign-up">
-                        <div class="form-group">
-                            <label for="name">First Name</label>
-                            <input type="text" class="form-control" id="signUpName" aria-describedby="First Name"
-                                placeholder="Enter First Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" class="form-control" id="signUpLastName" aria-describedby="Last Name"
-                                placeholder="Enter Last Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="signUpEmail" aria-describedby="emailHelp"
-                                placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="signPassword">Create Password</label>
-                            <input type="password" class="form-control" id="signUpPassword"
-                                placeholder="Create Password">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
-
+    <script src="./js/scroll.js" type="text/javascript"></script>
 </body>
-
 </html>
