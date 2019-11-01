@@ -3,6 +3,7 @@ const Sequelize = require("sequelize");
 const path = require("path");
 const fs = require("fs");
 const router = require("router");
+
 // import the models folder
 const db = require("./models")
 
@@ -16,9 +17,13 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));//Check to see if we need this folder in place of the home file. 
 
-require("./app/routes/htmlRoutes.js")(app);
-require("./app/routes/search-apiroutes.js")(app);
+
+require("./routes/htmlRoutes.js")(app);
+require("./routes/search-apiroutes.js")(app);
 // require("./app/routes/api-routes")(app);
+
+// var routes = require("./controllers/burgers_controller.js");
+// app.use("/", routes);
 
 db.sequelize.sync().then(function () {
   app.listen(PORT, function () {

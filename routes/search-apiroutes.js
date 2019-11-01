@@ -6,7 +6,7 @@ const Op = sequelize.Op;
 // require("dotenv").config();
 // // Export the function
 
-const db = require("../../models")
+const db = require("../models")
 
 // // Exported function
 module.exports = function (app) {
