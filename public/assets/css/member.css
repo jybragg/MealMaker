@@ -1,8 +1,9 @@
 #memberpg {
-    background-image: url("../images/salad.png");
+    background-image: url("../images/marble.jpg");
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+    /* height: 100vh; */
  } 
 
 #add-container {

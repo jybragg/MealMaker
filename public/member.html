@@ -18,7 +18,7 @@
 <body id="memberpg">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="mainNav">
+  <nav class="navbar navbar-expand-sm  navbar-light" id="mainNav">
     <div class="container">
 
       <!-- LOGO -->
@@ -43,21 +43,26 @@
       </div>
     </div>
   </nav>
-
+  <br>
+  <div class="row">
+    <div class="col-12">
+      <h1 class="text-center"><strong>Welcome</strong></h1>
+    </div>
+  </div>
   <div class="container" id="add-container">
     <div class="row">
-
       <div class="col-md-5">
+        <h2>Add a Recipe</h2>
         <form>
           <div class="form-group">
-            <label for="title" class="text-white">Recipe:</label>
+            <label for="title" class="font-weight-bold">Title:</label>
             <input type="text" class="form-control" id="title">
-            <label for="title" class="text-white">URL:</label>
+            <label for="title" class="font-weight-bold">URL:</label>
             <input type="text" class="form-control" id="url">
             <br />
-            <label for="body" class="text-white">Ingredients:</label>
+            <label for="body" class="font-weight-bold">Ingredients:</label>
             <textarea class="form-control" rows="5" id="ingredients"></textarea>
-            <label for="body" class="text-white">Instructions:</label>
+            <label for="body" class="font-weight-bold">Instructions:</label>
             <textarea class="form-control" rows="5" id="instructions"></textarea>
             <br />
             <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
@@ -66,7 +71,7 @@
       </div>
 
       <div class="col-md-7">
-        <h1 class="text-center text-white">Favorites</h1>
+        <h1 class="text-center text-black">Favorites</h1>
         <div class="container" id="favorites-container"></div>
       </div>
     </div>

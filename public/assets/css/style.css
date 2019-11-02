@@ -67,7 +67,7 @@ h2 {
 
 h3 {
     text-align: center;
-    color: White;
+    /* color: White; */
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
 }
@@ -84,13 +84,12 @@ h3 {
 } */
 
 #recipesSearch {
-    color: rgb(7, 7, 7);
     font-family: 'Raleway', sans-serif;
     text-align: center;
     font-size: 100px;
 }
 #search-container {
-    margin-top: 3.5rem;
+    margin-top: 9rem;
 }
 #fav{
     color: rgb(7, 7, 7);

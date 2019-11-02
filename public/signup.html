@@ -18,21 +18,30 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="mainNav">
+        <div class="container">
+
+            <!-- LOGO -->
+            <a class="navbar-brand js-scroll-trigger text-expanded" href="index.html"> Back</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card card-signin flex-row my-5">
                     <div class="card-img-left d-none d-md-flex">
-                        <!-- Background image for card set in CSS! -->
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title text-center">Register</h5>
+                    <div class="card-body mt-3 mb-3">
+                        <h5 class="card-title text-center">Sign up</h5>
                         <form class="form-signin">
-                            <div class="form-label-group">
-                                <input type="text" id="inputUserame" class="form-control" placeholder="Username"
-                                    required autofocus>
-                                <label for="inputUserame">Username</label>
-                            </div>
 
                             <div class="form-label-group">
                                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
@@ -48,20 +57,11 @@
                                 <label for="inputPassword">Password</label>
                             </div>
 
-                            <div class="form-label-group">
-                                <input type="password" id="inputConfirmPassword" class="form-control"
-                                    placeholder="Password" required>
-                                <label for="inputConfirmPassword">Confirm password</label>
-                            </div>
-
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                 type="submit">Register</button>
-                            <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+                            <a class="d-block text-center mt-2 small" href="login.html">Sign In</a>
                             <hr class="my-4">
-                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i
-                                    class="fab fa-google mr-2"></i> Sign up with Google</button>
-                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i
-                                    class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+
                         </form>
                     </div>
                 </div>
