@@ -48,17 +48,6 @@
     height: 100vh;
 }
 
-#addpage {
-    background-image: url("../images/cut.png");
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
- } 
-
-#add-container {
-margin-top: 5rem;
- }
-
 h1 {
     text-align: left;
     color: White;

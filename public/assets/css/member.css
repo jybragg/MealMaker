@@ -1,0 +1,10 @@
+#memberpg {
+    background-image: url("../images/salad.png");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+ } 
+
+#add-container {
+margin-top: 5rem;
+ }
