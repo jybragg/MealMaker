@@ -3,6 +3,13 @@ CREATE DATABASE `mealprep`;
 
 USE `mealprep`;
 
+
+
+INSERT INTO Users 
+(username, user_password, user_identifier) VALUES
+("jyb", "1234", 0123456789)
+
+
 INSERT INTO Posts
     (name, url, ingredients, instructions, createdAt, updatedAt)
 VALUES
