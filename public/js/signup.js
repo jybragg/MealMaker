@@ -16,7 +16,7 @@ $(document).ready(function () {
       user_identifier: randomID
     }
 
-    if (!user_data.username || !user_data.password) {
+    if (!user_data.email || !user_data.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
