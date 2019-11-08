@@ -13,14 +13,14 @@ $(document).ready(function () {
 
     var user_data = {
       email: emailSign_up,
-      password: passwordSign_up,
+      password: passwordSign_up
     }
 
     if (!user_data.email || !user_data.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
-    signUpUser(user_data.password, user_data.email);
+    signUpUser(user_data.email, user_data.password);
 
     $("#emailSign_up").val("");
     $("#passwordSign_up").val("");
@@ -33,8 +33,6 @@ $(document).ready(function () {
     $.post("/api/signup", {
       email: email,
       password: password,
-      
-     
     }).then(function (data) {
       window.location.replace(data);
       // If there's an error, handle it by throwing up a boostrap alert

@@ -2,21 +2,23 @@
 // var app = express();
 
 // // config for passport.js
-// var passport = require('passport')
-//   , LocalStrategy = require('passport-local').Strategy;
-//   //We will need the models folder to check passport agains
+// var passport = require('passport');
+// LocalStrategy = require('passport-local').Strategy;
+
+// //We will need the models folder
 // var db = require("../models");
+
 // // Telling passport we want to use a Local Strategy. In other words,
 // //we want login with a email and password
 // passport.use(new LocalStrategy(
 //   // Our user will sign in using an email, rather than a "username"
-//   function(email, password, done) {
+//   function (email, password, done) {
 //     // When a user tries to sign in this code runs
 //     db.User.findOne({
 //       where: {
 //         email: email
 //       }
-//     }).then(function(dbUser) {
+//     }).then(function (dbUser) {
 //       // If there's no user with the given email
 //       if (!dbUser) {
 //         return done(null, false, {
@@ -38,25 +40,13 @@
 // // In order to help keep authentication state across HTTP requests,
 // // Sequelize needs to serialize and deserialize the user
 // // Just consider this part boilerplate needed to make it all work
-// passport.serializeUser(function(user, cb) {
+// passport.serializeUser(function (user, cb) {
 //   cb(null, user);
 // });
 // //
-// passport.deserializeUser(function(obj, cb) {
+// passport.deserializeUser(function (obj, cb) {
 //   cb(null, obj);
 // });
-
-
-// // app.configure(function() {
-// //   app.use(express.static('public'));
-// //   app.use(express.cookieParser());
-// //   app.use(express.bodyParser());
-// //   app.use(express.session({ secret: 'keyboard cat' }));
-// //   app.use(passport.initialize());
-// //   app.use(passport.session());
-// //   app.use(app.router);
-// // });
-
 
 // // Exporting our configured passport
 // module.exports = passport;

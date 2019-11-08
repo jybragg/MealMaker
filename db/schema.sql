@@ -4,10 +4,9 @@ CREATE DATABASE `mealprep`;
 USE `mealprep`;
 
 
-
 INSERT INTO Users 
-(username, user_password, user_identifier) VALUES
-("jyb", "1234", 0123456789)
+(email, user_password) VALUES
+("jyb@email.com", "1234")
 
 
 INSERT INTO Posts

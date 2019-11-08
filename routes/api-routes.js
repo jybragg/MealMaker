@@ -3,7 +3,7 @@ var router = express.Router();
 // var models = require('../models');
 var db = require("../models");
 var passport = require("../config/passport");
-var LocalStrategy = require("passport-local").Strategy;
+// var LocalStrategy = require("passport-local").Strategy;
 
 module.exports = function (app) {
 
@@ -36,117 +36,9 @@ module.exports = function (app) {
 
   // Route for logging user out
   app.get("/logout", function (req, res) {
-    req.logout();
-    res.redirect("/");
+    // req.logout();
+    req.session.destroy(function (err) {
+      res.redirect("/");
+    });
   });
-
 };
-
-//======================================================================================================================//
-
-//we import passport packages required for authentication
-// var passport = require("passport");
-// var passport = require("../config/passport");
-// var LocalStrategy = require("passport-local").Strategy;
-// //
-// //We will need the models folder to check passport agains
-// var db = require("../models");
-
-// module.exports = function (app) {
-
-//   // Telling passport we want to use a Local Strategy. In other words,
-//   //we want login with a username/email and password
-//   passport.use(new LocalStrategy(
-//     // Our user will sign in using an email, rather than a "username"
-//     {
-//       usernameField: "email"
-//     },
-//     function (email, password, done) {
-//       // When a user tries to sign in this code runs
-//       db.User.findOne({
-//         where: {
-//           email: email
-//         }
-//       }).then(function (dbUser) {
-//         // If there's no user with the given email
-//         if (!dbUser) {
-//           return done(null, false, {
-//             message: "Incorrect email."
-//           });
-//         }
-//         // If there is a user with the given email, but the password the user gives us is incorrect
-//         else if (!dbUser.validPassword(password)) {
-//           return done(null, false, {
-//             message: "Incorrect password."
-//           });
-//         }
-//         // If none of the above, return the user
-//         return done(null, dbUser);
-//       });
-//     }
-//   ));
-//   //
-//   // In order to help keep authentication state across HTTP requests,
-//   // Sequelize needs to serialize and deserialize the user
-//   // Just consider this part boilerplate needed to make it all work
-//   passport.serializeUser(function (user, cb) {
-//     cb(null, user);
-//   });
-//   //
-//   passport.deserializeUser(function (obj, cb) {
-//     cb(null, obj);
-//   });
-// }
-//======================================================================================================================//
-
-// router.post('/', function(req, res) {
-//   // first fill the database with this new user's information
-//   console.log(JSON.stringify(req.body));
-//   models.User.find({
-//       where: { username: req.body.username },
-//       attributes: [ 'username' ]
-//     })
-//     .then(function(user) {
-//       if(!user) {
-//         // create that user as no one by that username exists
-//         models.User
-//           // all go in directly, all our field names are the same
-//           .create(req.body)
-//           .complete(function(err, user) {
-//             if(err) {
-//               throw err;
-//             } else {
-//               // set the flash message to indicate that user was
-//               // registered successfully
-//               req.flash('error', 'The user was registered successfully')
-//               // finally redirect to login page, so that they can login
-//               // and start using our features
-//               res.redirect('/login');
-//             }
-//           });
-//       } else {
-//         // there's already someone with that username
-//         res.render('register', {
-//           user: req.user,
-//           message: "That username already exists"
-//         });
-//       }
-//     })
-//     .catch(function(err){
-//       throw err;
-//     })
-// });
-
-// router.get('/', function(req, res){
-//   // if already authenticated, then no need to register
-//   // this is a bad case where user is meddling with the URL
-//   // we just send him to our home page if so
-//   if(req.isAuthenticated()) {
-//     res.redirect('/');
-//   } else {
-//     res.render('register', { user: req.user, message: req.flash('error') });
-//   }
-// });
-
-
-// }
