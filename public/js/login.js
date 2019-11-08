@@ -1,10 +1,13 @@
-//code that handles user login
+console.log("login.js connected");
+
+// code that handles user login
 $(document).ready(function () {
 
     let emailLog;
     let passLog;
   
     $("#logInBtn").on("click", function (event) {
+      console.log("login was clicked");
       event.preventDefault()
       emailLog = $("#emailLog").val().trim()
       passLog = $("#passLog").val().trim()
