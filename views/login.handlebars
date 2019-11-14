@@ -1,0 +1,50 @@
+ <nav class="navbar navbar-expand-sm fixed-top navbar-light" id="mainNav">
+    <div class="container">
+
+      <!-- LOGO -->
+      <a class="navbar-brand js-scroll-trigger text-expanded" href="/"> Back</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Welcome back!</h3>
+                <form>
+                  <div class="form-label-group">
+                    <input type="email" id="emailLog" class="form-control" placeholder="Email address" required
+                      autofocus>
+                    <label for="emailLog">Email address</label>
+                  </div>
+
+                  <div class="form-label-group">
+                    <input type="password" id="passLog" class="form-control" placeholder="Password" required>
+                    <label for="passLog">Password</label>
+                  </div>
+
+                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+                    id="logInBtn" type="submit">Sign in</button>
+
+                  <a class="d-block text-center mt-2 small" href="/signup">Not a member? Sign up</a>
+                  <hr class="my-4">
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../controllers/login.js" type="text/javascript"></script>

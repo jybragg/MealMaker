@@ -1,3 +1,4 @@
+
 #section0,
 #section1,
 #section2,
@@ -13,7 +14,6 @@
     background-position: center;
     height: 100vh;
 }
-
 
 #section1 {
     background-image: url("../images/food.png");
@@ -67,7 +67,7 @@ h2 {
 
 h3 {
     text-align: center;
-    /* color: White; */
+  
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
 }
@@ -77,11 +77,6 @@ h3 {
     font-family: 'Raleway', sans-serif;
     font-size: 65px;
 }
-
-/* .btn .btn-danger {
-    background: rgb(153, 14, 14);
-    
-} */
 
 #recipesSearch {
     font-family: 'Raleway', sans-serif;
@@ -97,5 +92,17 @@ h3 {
     text-align: center;
     font-size: 100px;
 }
+
+#memberpg {
+    background-image: url("../images/marble.jpg");
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+  
+ } 
+
+#add-container {
+margin-top: 5rem;
+ }
 
 

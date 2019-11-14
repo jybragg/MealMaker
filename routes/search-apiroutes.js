@@ -3,8 +3,10 @@ const sequelize = require("sequelize");
 const Op = sequelize.Op;
 const db = require("../models")
 
-// // Exported function
+// Exported function
 module.exports = function (app) {
+
+  // GET route for searching name
   app.get("/api/search/:name", function (req, res) {
     db.Post.findAll({
       where: {
@@ -14,6 +16,7 @@ module.exports = function (app) {
       }
     })
       .then(function (dbPost) {
+        console.log(dbPost);
         res.json(dbPost);
       })
   })
@@ -22,20 +25,22 @@ module.exports = function (app) {
   app.get("/api/search/", function (req, res) {
     db.Post.findAll({})
       .then(function (dbPost) {
+        console.log(dbPost);
         res.json(dbPost);
       });
   });
+
   // Get route for returning posts of a specific category
-  app.get("/api/search/category/:category", function (req, res) {
-    db.Post.findAll({
-      where: {
-        category: req.params.category
-      }
-    })
-      .then(function (dbPost) {
-        res.json(dbPost);
-      });
-  });
+  // app.get("/api/search/category/:category", function (req, res) {
+  //   db.Post.findAll({
+  //     where: {
+  //       category: req.params.category
+  //     }
+  //   })
+  //     .then(function (dbPost) {
+  //       res.json(dbPost);
+  //     });
+  // });
 
   // Get route for retrieving a single post
   app.get("/api/search/:id", function (req, res) {
@@ -86,18 +91,22 @@ module.exports = function (app) {
         res.json(dbPost);
       });
   });
+
+  //To insert into the database??
+  app.post("/api/posts", function (req, res) {
+    console.log(req.body);
+    db.Post.create({
+      title: req.body.title,
+      body: req.body.body,
+      ingredients: req.body.Ingredients,
+      instructions: req.body.instructions,
+    })
+      .then(function (dbPost) {
+        console.log(dbPost);
+        res.json(dbPost);
+      });
+  });
+
 };
 
 
-// app.post("/api/posts", function (req, res) {
-//   console.log(req.body);
-//   db.Post.create({
-//     title: req.body.title,
-//     body: req.body.body,
-//     ingredients: req.body.Ingredients,
-//     instructions: req.body.instructions,
-//   })
-//     .then(function (dbPost) {
-//       res.json(dbPost);
-//     });
-// });

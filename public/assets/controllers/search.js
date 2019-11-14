@@ -1,8 +1,12 @@
-//console.log("connected");
+console.log("connected");
+
 $(document).ready(function() {
+
     // blogContainer holds all of our posts
     var blogContainer = $(".blog-container");
+
     var postCategorySelect = $("#category");
+
    // Click events for the edit and delete buttons
     $(document).on("click", "button.delete", handlePostDelete);
     $(document).on("click", "button.edit", handlePostEdit);
@@ -15,6 +19,7 @@ $(document).ready(function() {
       if (categoryString) {
         categoryString = "/category/" + categoryString;
       }
+
       $.get("/api/search" + categoryString, function(data) {
         console.log("Posts", data);
         $(".blog-container").text(data[0].name);
@@ -45,6 +50,7 @@ $(document).ready(function() {
   
     // Getting the initial list of posts
     getPosts();
+    
     // InitializeRows handles appending all of our constructed post HTML inside
     // blogContainer
     function initializeRows() {
