@@ -33,7 +33,17 @@
                 <br>
                 <div class="row mt-4 justify-conent-center">
                     <div class="col-12">
-                        <div class="form-group">
+
+                        <section id="search" class="search-wrap">
+                            <h1>Find A Recipe</h1>
+                            <form action="/api/search" class="search-form">
+                                <i class="fas fa-search"></i>
+                                <input type="search" name="term" placeholder="recipes">
+                                <input type="submit" value="Search">
+                            </form>
+                        </section>
+
+                        {{!-- <div class="form-group">
                             <form action="/api/search" class="form-group mx-auto" style="width: 400px;">
                                 <div>
                                     <input type="seach" class="form-control" name="term" id="recipes2"
@@ -41,7 +51,7 @@
                                     <button class="btn btn-danger btn-md" id="search">Search</button>
                                 </div>
                             </form>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -53,17 +63,17 @@
     <h1>All Recipes</h1>
 
     {{#each posts}}
-      <div class="posts">
-      <h3>{{name}}</h3>
-      <p>{{ingredients}}</p>
-      <p>{{instructions}}</p>
-     
+    <div class="posts">
+        <h3>{{name}}</h3>
+        <p>{{ingredients}}</p>
+        <p>{{instructions}}</p>
+
     </div>
     {{else}}
-      <p>No recipes available</p>
+    <p>No recipes available</p>
     {{/each}}
-    
-  </section>
+
+</section>
 
 
 <footer class="h-10"></footer>

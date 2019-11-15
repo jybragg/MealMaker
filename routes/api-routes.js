@@ -45,16 +45,28 @@ module.exports = function (app) {
 
 //===================================================================//
 
-// Get all recipes list
-app.get("/api/search/", (req, res) => 
-  db.Post.findAll()
-  .then(posts => res.render("search", {
-    posts
-  }))
-  .catch(err => console.log(err)));
+// Get all recipes list === works
+// app.get("/api/search/", (req, res) => 
+//   db.Post.findAll()
+//   .then(posts => res.render("search", {
+//     posts
+//   }))
+//   .catch(err => console.log(err)));
 
 
+// Search for gigs
+app.get('/api/search', (req, res) => {
+  let { term } = req.query;
 
+  // Make lowercase
+  term = term.toLowerCase();
+
+  db.Post.findAll({ where: { name: { [Op.like]: '%' + term + '%' } } })
+    .then(posts => res.render('search', { posts }))
+    .catch(err => console.log(err));
+});
+
+//===================================================================//
 
 // Route for getting all of the posts
   // app.get("/api/search/", function (req, res) {
@@ -81,26 +93,26 @@ app.get("/api/search/", (req, res) =>
   // });
 
   // GET route for Searching by name
-  app.get("/api/search/:name", function (req, res) {
-    db.Post.findAll({
-      where: {
-        name: {
-          [Op.like]: "%" + req.params.name + "%"
-        }
-      }
-    })
-      .then(function (dbPost) {
-        console.log(dbPost);
-        // res.json(dbPost);
-        res.render("search", {
-          title: req.body.title,
-              body: req.body.body,
-              ingredients: req.body.Ingredients,
-              instructions: req.body.instructions
-        })
-      })
-      .catch(err => console.log(err));
-  });
+  // app.get("/api/search/:name", function (req, res) {
+  //   db.Post.findAll({
+  //     where: {
+  //       name: {
+  //         [Op.like]: "%" + req.params.name + "%"
+  //       }
+  //     }
+  //   })
+  //     .then(function (dbPost) {
+  //       console.log(dbPost);
+  //       // res.json(dbPost);
+  //       res.render("search", {
+  //         title: req.body.title,
+  //             body: req.body.body,
+  //             ingredients: req.body.Ingredients,
+  //             instructions: req.body.instructions
+  //       })
+  //     })
+  //     .catch(err => console.log(err));
+  // });
 
   
   //POST route for saving a new post
