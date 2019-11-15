@@ -43,32 +43,81 @@ module.exports = function (app) {
     });
   });
 
-//===================================================================//
+  //===================================================================//
 
-// Get all recipes list === works
-// app.get("/api/search/", (req, res) => 
-//   db.Post.findAll()
-//   .then(posts => res.render("search", {
-//     posts
-//   }))
-//   .catch(err => console.log(err)));
+  // Get all recipes list === works
+  // app.get("/api/search/", (req, res) => 
+  //   db.Post.findAll()
+  //   .then(posts => res.render("search", {
+  //     posts
+  //   }))
+  //   .catch(err => console.log(err)));
 
 
-// Search for gigs
-app.get('/api/search', (req, res) => {
-  let { term } = req.query;
+  // Search for gigs
+  app.get('/api/search', (req, res) => {
+    let { term } = req.query;
 
-  // Make lowercase
-  term = term.toLowerCase();
+    // Make lowercase
+    term = term.toLowerCase();
 
-  db.Post.findAll({ where: { name: { [Op.like]: '%' + term + '%' } } })
-    .then(posts => res.render('search', { posts }))
-    .catch(err => console.log(err));
-});
+    db.Post.findAll({ where: { name: { [Op.like]: '%' + term + '%' } } })
+      .then(posts => res.render('search', { posts }))
+      .catch(err => console.log(err));
+  });
 
-//===================================================================//
 
-// Route for getting all of the posts
+  // Add a gig
+  app.post('/members', (req, res) => {
+    let { name, url, ingredients, instructions } = req.body;
+    let errors = [];
+
+    // Validate Fields
+    if (!name) {
+      errors.push({ text: 'Please add a title' });
+    }
+    if (!ingredients) {
+      errors.push({ text: 'Please add ingredients' });
+    }
+    if (!instructions) {
+      errors.push({ text: 'Please add instructions' });
+    }
+
+    // Check for errors
+    if (errors.length > 0) {
+      res.render('members', {
+        errors,
+        name,
+        url,
+        ingredients,
+        instructions,
+      });
+    } else {
+      if (!url) {
+        url = 'Unknown';
+      };
+
+      // Make lowercase and remove space after comma
+      // technologies = technologies.toLowerCase().replace(/, /g, ',');
+
+      // Insert into table
+      db.Post.create({
+        name,
+        url,
+        ingredients,
+        instructions,
+      })
+        .then(posts => res.render('members', { posts }))
+        // .then(posts => res.redirect('/gigs'))
+        .catch(err => console.log(err));
+    }
+  });
+
+
+
+  //===================================================================//
+
+  // Route for getting all of the posts
   // app.get("/api/search/", function (req, res) {
   //   db.Post.findAll({})
   //     .then(function (dbPost) {
@@ -114,7 +163,7 @@ app.get('/api/search', (req, res) => {
   //     .catch(err => console.log(err));
   // });
 
-  
+
   //POST route for saving a new post
   // app.post("/api/search", function (req, res) {
   //   console.log(req.body);
