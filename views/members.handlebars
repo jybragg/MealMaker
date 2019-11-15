@@ -33,7 +33,7 @@
         <div class="row">
             <div class="col-md-5">
                 <h2>Add a Recipe</h2>
-                <form>
+                <form action="/post/add" method="POST">
                     <div class="form-group">
                         <label for="title" class="font-weight-bold">Title:</label>
                         <input type="text" class="form-control" id="title">
@@ -52,7 +52,27 @@
 
             <div class="col-md-7">
                 <h1 class="text-center text-black">Favorites</h1>
-                <div class="container" id="favorites-container"></div>
+                <div class="container" id="favorites-container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div id="articles" style="padding-right:3%; padding-left:3%">
+                                {{#each saved}}
+                                <button data-id={{this._id}} class="btn btn-warning delete-article"
+                                    style="padding: 3px 6px; float:right;">Delete from
+                                    Saved</button>
+                                <button data-id={{this._id}} class="btn btn-warning note-comment"
+                                    style="padding: 3px 6px; float:right; margin-right:.5%">Article Notes</button>
+                                <h4><strong>{{this.title}}</strong></h4>
+                                <a href="{{this.link}}">{{this.link}}</a>
+                                {{#if this.excerpt}}
+                                <h5>{{this.excerpt}}</h5>
+                                {{/if}}
+                                <hr>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
