@@ -54,7 +54,7 @@ module.exports = function (app) {
   //   .catch(err => console.log(err)));
 
 
-  // Search for gigs
+  // Search for recipes
   app.get('/api/search', (req, res) => {
     let { term } = req.query;
 
