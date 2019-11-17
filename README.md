@@ -1,16 +1,16 @@
 # MealPrepper
 
-MealPrepper is a collaborative where users can search recipes entered by other users and where they can also add their own recipes to the database.
+MealPrepper is a collaborative project where users can search recipes entered by other users and can also add their own recipes to the database.
 
-## This site is made with
+## This site is made with:
 
-### Front-end: 
+### Front-end 
 Handlebars, CSS, Bootstrap, Passport.js
 
-### Database: 
+### Database 
 MySQL using Sequelize
 
-### Server: 
+### Server
 Node.js, Express
 
 
