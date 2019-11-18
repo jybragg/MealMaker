@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "mealprep",
-    "host": "127.0.0.1",
+    "username": "etb3h92ppqst601a",
+    "password": "dye27ep5w7sype16",
+    "database": "jpm00figdv99bfmb",
+    "host": "kf3k4aywsrp0d2is.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "port": 3306,
     "dialect": "mysql"
   },
