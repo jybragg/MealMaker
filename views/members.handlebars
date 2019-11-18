@@ -1,95 +1,185 @@
 <!-- Navigation -->
-<div id="memberpg">
-    <nav class="navbar navbar-expand-sm  navbar-light" id="mainNav">
+<div id="section1">
+
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark" id="mainNav">
         <div class="container">
 
             <!-- LOGO -->
-            <!-- <a class="navbar-brand js-scroll-trigger text-expanded" href="#page-top">Meal Prepper</a> -->
+            <!-- <a class="navbar-brand js-scroll-trigger text-expanded" href="#page-top">Meal Maker</a> -->
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item active px-lg-4">
-                        <a class="nav-link js-scroll-trigger text-black" href="/search">Search Recipes</a>
+                        <a class="nav-link js-scroll-trigger" href="/">Home</a>
                     </li>
                     <li class="nav-item active px-lg-4">
                         <a class="nav-link js-scroll-trigger" id="logOutLink" href="/logout">Log Out</a>
                     </li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
-    <br>
     <div class="row">
-        <div class="col-12">
-            <h1 class="text-center"><strong>Welcome</strong></h1>
-        </div>
     </div>
 
-    <section id="add" class="container">
-        <div class="form-wrap">
-            {{!-- <h1>Add A Recipe</h1> --}}
+    <div class="section">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-8">
+                <div class="container" id="search-container">
+                    <h1 class="welcome">Welcome</h1>
+                    <br>
+                </div>
+                <div class="row mt-4 mr-4 justify-conent-center">
+                    <div class="col-9">
 
-            {{#each errors}}
-            <div class="error">
-                <p>{{text}}</p>
-            </div>
-            {{/each}}
-            <div class="card flex-row">
-                <div class="card-body">
-                    <h5 class="card-title text-center">Add a Recipe</h5>
-                    <form action="/members" method="POST">
-                        <div class="input-group">
-                            <label class="font-weight-bold" for="name">Title: </label>
-                            <input type="text" name="name" id="name" class="input-box" placeholder="recipe title"
-                                maxlength="100" value={{name}}>
-                        </div>
-                         <hr>
-                        <div class="input-group">
-                            <label class="font-weight-bold" for="url">Url:</label>
-                            <input type="text" name="url" id="url" class="input-box" placeholder="recipe url"
-                                maxlength="100" value={{url}}>
-                        </div>
-                         <hr>
-                        <div class="input-group">
-                            <label class="font-weight-bold" for="ingredients">Ingredients: </label>
-                            <textarea name="ingredients" id="ingredients" class="input-box" placeholder="ingredients"
-                                rows="10">{{ingredients}}</textarea>
-                        </div>
-                         <hr>
-                        <div class="input-group">
-                            <label class="font-weight-bold" for="instructions">Instructions: </label>
-                            <textarea name="instructions" id="instructions" class="input-box" placeholder="instructions"
-                                rows="10">{{instructions}}</textarea>
-                        </div>
+                        <section id="search" class="search-wrap">
 
-                        <input class="font-weight-bold" type="submit" value="Add Recipe" class="btn btn-reverse">
-                    </form>
+                            <form action="/api/members" class="search-form float-right mr-4">
+                                <h2 id="search-title">Search Recipes</h2>
+                                <i class="fas fa-search"></i>
+                                <input type="search" name="term" placeholder="recipes">
+                                <input type="submit" value="Search">
+                            </form>
+                        </section>
+                    </div>
+                    <div class="col-3"></div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</div>
 
-    <!-- Results Container -->
-    <section id="posts" class="container">
-        <h1>Your Favorite Recipes</h1>
+<!-- Results Container -->
+<section id="section4">
+
+    {{#each results}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <br>
+                <div class="card" id="results-card">
+                    <div class="card-body">
+
+                        <h3>{{name}}</h3>
+
+                        <a href={{url}}>{{url}}</a>
+                        <br>
+                        <p>{{ingredients}}</p>
+                        <p>{{instructions}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <div class="row">
+        <div class="col-8"></div>
+        <div class="col-4">
+            <br>
+            <p class="text-white mr-5">No recipes found</p>
+        </div>
+    </div>
+    {{/each}}
+
+</section>
+
+<!--Add a Recipe Container -->
+<section id="section4">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="form-wrap" id="add-form">
+
+                {{#each errors}}
+                <div class="error">
+                    <p>{{text}}</p>
+                </div>
+                {{/each}}
+                <br>
+                <div class="card" id="addCard">
+                    <div class="card-body">
+                        <h5 class="card-title text-center ml-5">Add a Recipe</h5>
+                        <form action="/members" method="POST">
+                            <div class="input-group justify-content-center ml-3">
+                                <label class="font-weight-bold" for="name">Title: </label>
+                                <input type="text" name="name" id="name" class="input-box ml-3" placeholder=""
+                                    maxlength="100" value={{name}}>
+                            </div>
+                            <hr>
+                            <div class="input-group justify-content-center ml-4">
+                                <label class="font-weight-bold" for="url">Url:</label>
+                                <input type="text" name="url" id="url" class="input-box ml-3" placeholder=""
+                                    maxlength="100" value={{url}}>
+                            </div>
+                            <hr>
+                            <div class="input-group justify-content-center">
+                                <label class="font-weight-bold" for="ingredients">Ingredients: </label>
+                                <textarea name="ingredients" id="ingredients" class="input-box ml-3" placeholder=""
+                                    rows="10">{{ingredients}}</textarea>
+                            </div>
+                            <hr>
+                            <div class="input-group justify-content-center">
+                                <label class="font-weight-bold" for="instructions">Instructions: </label>
+                                <textarea name="instructions" id="instructions" class="input-box ml-3" placeholder=""
+                                    rows="10">{{instructions}}</textarea>
+                            </div>
+                            <br>
+                            <input class="font-weight-bold" type="submit" value="Add Recipe" class="btn btn-reverse"
+                                id="add-btn">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</section>
+
+<!-- Added recipe Container -->
+<section id="section4">
+    <div class="container">
 
         {{#each posts}}
-        <div class="posts">
-            <h3>{{name}}</h3>
-            <p>{{url}}</p>
-            <p>{{ingredients}}</p>
-            <p>{{instructions}}</p>
-
+        <div class="container">
+            <div class="row">
+                <div class="col justify-content-center">
+                    <div class="card" id="addCard">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Recipes Added:</h5>
+                            <h3>{{name}}</h3>
+                            <a class="justify-content-center" href={{url}}>{{url}}</a>
+                            <p>{{ingredients}}</p>
+                            <p>{{instructions}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         {{else}}
-        <p>You don't have any saved favorites</p>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <p class="text-center"></p>
+                </div>
+            </div>
+        </div>
         {{/each}}
 
-    </section>
+    </div>
+</section>
 
-</div>
+{{!-- Footer --}}
+<footer class="h-10"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>

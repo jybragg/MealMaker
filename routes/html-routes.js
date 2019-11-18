@@ -88,9 +88,9 @@ module.exports = function (app) {
     res.render("index");
   });
 
-  app.get("/search", function (req, res) {
-    res.render("search");
-  });
+  // app.get("/search", function (req, res) {
+  //   res.render("search");
+  // });
 
   app.get("/signup", function (req, res) {
     res.render("signup");

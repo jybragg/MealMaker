@@ -45,7 +45,7 @@ module.exports = function (app) {
 
   //===================================================================//
 
-  // Get all recipes list === works
+  // Get all recipes list === this works
   // app.get("/api/search/", (req, res) => 
   //   db.Post.findAll()
   //   .then(posts => res.render("search", {
@@ -55,19 +55,19 @@ module.exports = function (app) {
 
 
   // Search for recipes
-  app.get('/api/search', (req, res) => {
+  app.get('/api/members', (req, res) => {
     let { term } = req.query;
 
     // Make lowercase
     term = term.toLowerCase();
 
     db.Post.findAll({ where: { name: { [Op.like]: '%' + term + '%' } } })
-      .then(posts => res.render('search', { posts }))
+      .then(results => res.render('members', { results }))
       .catch(err => console.log(err));
   });
 
 
-  // Add a gig
+  // Add a recipe
   app.post('/members', (req, res) => {
     let { name, url, ingredients, instructions } = req.body;
     let errors = [];
@@ -108,7 +108,7 @@ module.exports = function (app) {
         instructions,
       })
         .then(posts => res.render('members', { posts }))
-        // .then(posts => res.redirect('/gigs'))
+        // .then(posts => res.redirect('/members'))
         .catch(err => console.log(err));
     }
   });
