@@ -18,14 +18,14 @@ Node.js, Express
 ### Below is a screenshot of the Home page:
 ![Image of Home page](/public/assets/images/home.png)
 
-### Here is a screenshot of the Search page:
+### The Search page:
 ![Image of search](/public/assets/images/search.png)
 
-### Here is an example of a search result:
+### An example of a search result:
 ![Image of result](/public/assets/images/result.png)
 
 
-### Here is the form to add your own recipe:
+### The form to add your own recipe:
 ![Image of form](/public/assets/images/form.png)
 
 <hr>
