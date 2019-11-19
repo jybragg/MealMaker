@@ -13,6 +13,12 @@
     background-size: cover;
     background-position: center;
   }
+
+  .b-g-image {
+    background-image: url('../images/cucumber.jpg');
+    background-size: cover;
+    background-position: center;
+  }
   
   .login-heading {
     font-weight: 300;
