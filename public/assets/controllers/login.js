@@ -1,6 +1,6 @@
 console.log("login.js connected");
 
-// code that handles user login
+// Code that handles user login
 $(document).ready(function () {
 
     let emailLog;

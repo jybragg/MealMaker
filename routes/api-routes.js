@@ -8,9 +8,8 @@ var passport = require("../config/passport");
 
 module.exports = function (app) {
 
-  // Using the passport.authenticate middleware with our local strategy.
+  // Using the passport.authenticate middleware with local strategy.
   // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
@@ -54,7 +53,7 @@ module.exports = function (app) {
   //   .catch(err => console.log(err)));
 
 
-  // Search for recipes
+  // Search function for members page
   app.get('/api/members', (req, res) => {
     let { term } = req.query;
 
@@ -65,6 +64,21 @@ module.exports = function (app) {
       .then(results => res.render('members', { results }))
       .catch(err => console.log(err));
   });
+
+
+// Search function for guest page
+app.get('/api/guest', (req, res) => {
+  let { term } = req.query;
+
+  // Make lowercase
+  term = term.toLowerCase();
+
+  db.Post.findAll({ where: { name: { [Op.like]: '%' + term + '%' } } })
+    .then(search => res.render('guest', { search }))
+    .catch(err => console.log(err));
+});
+
+
 
 
   // Add a recipe
@@ -113,33 +127,55 @@ module.exports = function (app) {
     }
   });
 
+// Add a recipe in Guest modal
+app.post('/api/guest', (req, res) => {
+  let { name, url, ingredients, instructions } = req.body;
+  let errors = [];
 
+  // Validate Fields
+  if (!name) {
+    errors.push({ text: 'Please add a title' });
+  }
+  if (!ingredients) {
+    errors.push({ text: 'Please add ingredients' });
+  }
+  if (!instructions) {
+    errors.push({ text: 'Please add instructions' });
+  }
 
+  // Check for errors
+  if (errors.length > 0) {
+    res.render('guest', {
+      errors,
+      name,
+      url,
+      ingredients,
+      instructions,
+    });
+  } else {
+    if (!url) {
+      url = 'Unknown';
+    };
+
+    // Make lowercase and remove space after comma
+    // technologies = technologies.toLowerCase().replace(/, /g, ',');
+
+    // Insert into table
+    db.Post.create({
+      name,
+      url,
+      ingredients,
+      instructions,
+    })
+      .then(posts => res.render('guest'))
+      // alert("Your recipes has been added"))
+      // .then(posts => res.redirect('/members'))
+      .catch(err => console.log(err))
+  }
+});
   //===================================================================//
 
-  // Route for getting all of the posts
-  // app.get("/api/search/", function (req, res) {
-  //   db.Post.findAll({})
-  //     .then(function (dbPost) {
-  //       // console.log(dbPost);
-  //       res.json(dbPost);
-  //     })
-  //     .catch(err => console.log(err));
-  // });
-
-  // Route for getting all of the posts
-  // app.get("/api/search", function (req, res) {
-  //   const { term } = req.query;
-  //   db.Post.findAll({
-  //     where: {
-  //       name: {
-  //         [Op.like]: "%" + term + "%"
-  //       }
-  //     }
-  //   })
-  //   .then(posts => res.render("members", { posts }))
-  //   .catch(err => console.log(err));
-  // });
+  //unused routes:
 
   // GET route for Searching by name
   // app.get("/api/search/:name", function (req, res) {
@@ -161,20 +197,6 @@ module.exports = function (app) {
   //       })
   //     })
   //     .catch(err => console.log(err));
-  // });
-
-
-  //POST route for saving a new post
-  // app.post("/api/search", function (req, res) {
-  //   console.log(req.body);
-  //   db.Post.create({
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     category: req.body.category
-  //   })
-  //     .then(function (dbPost) {
-  //       res.json(dbPost);
-  //     });
   // });
 
   // //DELETE route for deleting posts
@@ -201,21 +223,6 @@ module.exports = function (app) {
   //         res.json(dbPost);
   //       });
   //   });
-
-  // //To insert into the database??
-  // app.post("/api/posts", function (req, res) {
-  //   // console.log(req.body);
-  //   db.Post.create({
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     ingredients: req.body.Ingredients,
-  //     instructions: req.body.instructions,
-  //   })
-  //     .then(function (dbPost) {
-  //       console.log(dbPost);
-  //       res.json(dbPost);
-  //     });
-  // });
 
 };
 
